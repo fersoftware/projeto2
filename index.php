@@ -95,7 +95,7 @@ function limita_caracteres($texto, $limite, $quebra = true) {
                     if(count($res) >= 1 )
                     {
                         foreach($res as $b) {
-                            echo "<a href='/" . $b['Pagina'] . "'> " . substr(strip_tags($b['Descricao']),0,100) . " ...  - <strong>página " .  $b['Pagina'] . "</strong> </a><br/>";
+                            echo "<a href='/" . $b['Pagina'] . "'> " . limita_caracteres(strip_tags($b['Descricao']),100,false) . " - <strong>página " .  $b['Pagina'] . "</strong> </a><br/>";
                         }
                     }else
                     {
