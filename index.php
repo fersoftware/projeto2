@@ -69,14 +69,15 @@ function limita_caracteres($texto, $limite, $quebra = true) {
     $method = $_SERVER['REQUEST_METHOD'];
 
     if($method == 'POST')
-    {   ?>
+    {
+        if(isset($_POST['busca'])) {
+            ?>
 
-        <div class="alert alert-success">
-            <h3>Resultado da Busca</h3>
-            <hr>
-
-            <p>
-                <?php
+            <div class="alert alert-success">
+                <h3>Resultado da Busca</h3>
+                <hr>
+                <p>
+                    <?php
 
                     $sql = "SELECT
                     DadoSite.Descricao,
@@ -92,20 +93,19 @@ function limita_caracteres($texto, $limite, $quebra = true) {
                     $stmt->execute();
                     $res = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-                    if(count($res) >= 1 )
-                    {
-                        foreach($res as $b) {
-                            echo "<a href='/" . $b['Pagina'] . "'> " . limita_caracteres(strip_tags($b['Descricao']),100,false) . " - <strong>página " .  $b['Pagina'] . "</strong> </a><br/>";
+                    if (count($res) >= 1) {
+                        foreach ($res as $b) {
+                            echo "<a href='/" . $b['Pagina'] . "'> " . limita_caracteres(strip_tags($b['Descricao']), 100, false) . " - <strong>página " . $b['Pagina'] . "</strong> </a><br/>";
                         }
-                    }else
-                    {
+                    } else {
                         echo '<h3>Dados não encontrado</h3>';
                     }
                     ?>
-            </p>
-            <br><a href="?p=home">Clique Aqui para Retornar </a>
-        </div>
-    <?php
+                </p>
+                <br><a href="?p=home">Clique Aqui para Retornar </a>
+            </div>
+        <?php
+        }
     }
 
     $sql = "SELECT

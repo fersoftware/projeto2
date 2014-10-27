@@ -34,7 +34,7 @@ if($method == 'POST')
 if(!isset($esconda)) {
     ?>
     <div id="formcontatos" style="display: block">
-        <form class="well span8" action="?p=contatos" method="post">
+        <form class="well span8" action="/contatos" method="post">
             <div class="row">
                 <div class="span3">
                     <label>Nome</label>
