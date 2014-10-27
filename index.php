@@ -69,15 +69,7 @@ function limita_caracteres($texto, $limite, $quebra = true) {
     $method = $_SERVER['REQUEST_METHOD'];
 
     if($method == 'POST')
-    {
-        //Gambeta, essa preula de formulário nao quer sumir
-        //então eu mato na marra com IF
-
-        $esconda = 1;
-
-
-        ?>
-
+    {   ?>
 
         <div class="alert alert-success">
             <h3>Resultado da Busca</h3>
@@ -115,9 +107,6 @@ function limita_caracteres($texto, $limite, $quebra = true) {
         </div>
     <?php
     }
-
-
-
 
     $sql = "SELECT
     DadoSite.Descricao
